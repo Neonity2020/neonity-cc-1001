@@ -1,0 +1,173 @@
+<!doctype html>
+<!--
+  社交分享卡（1200×630）模板。
+  重新生成：
+    1. 在项目根目录起一个静态服务：npx serve .        （或 python3 -m http.server 4399）
+    2. 打开 scripts/og-template.html?name=…&statement=…&role=…&handle=…
+    3. 截图 1200×630，存成 public/og.png
+  文字通过 URL 参数传入，改文案不用动这个文件。
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: 'Geist';
+        src: url('../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2')
+          format('woff2-variations');
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url('../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2')
+          format('woff2-variations');
+        font-weight: 100 900;
+      }
+
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+
+      body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 76px 80px;
+        background: #000;
+        color: #ededed;
+        font-family: 'Geist', -apple-system, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.006em;
+      }
+
+      .line,
+      .grid,
+      .glow {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .line {
+        inset: 0 0 auto 0;
+        height: 2px;
+        background: linear-gradient(90deg, #007cf0, #00dfd8 40%, #7928ca 72%, #ff0080);
+      }
+
+      .grid {
+        inset: 0;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 0%, #000 20%, transparent 100%);
+      }
+
+      .glow {
+        inset: 0 0 auto 0;
+        height: 480px;
+        background: radial-gradient(ellipse 55% 100% at 50% 0%, rgba(0, 112, 243, 0.18), transparent 70%);
+      }
+
+      header,
+      footer {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      header {
+        gap: 16px;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid #3d3d3d;
+        border-radius: 10px;
+        background: #0a0a0a;
+        font-family: 'Geist Mono', monospace;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        position: relative;
+        max-width: 19ch;
+        font-size: 58px;
+        font-weight: 600;
+        line-height: 1.14;
+        letter-spacing: -0.028em;
+        white-space: pre-line;
+      }
+
+      footer {
+        justify-content: space-between;
+        gap: 24px;
+        font-family: 'Geist Mono', monospace;
+        font-size: 19px;
+        color: #a1a1a1;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #ededed;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #50e3c2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line"></div>
+    <div class="grid"></div>
+    <div class="glow"></div>
+
+    <header>
+      <span class="mark" id="monogram">N</span>
+      <span class="name" id="name">你的名字</span>
+    </header>
+
+    <h1 id="statement">用尽可能少的抽象，&#10;解决尽可能真实的问题。</h1>
+
+    <footer>
+      <span class="status"><span class="dot"></span><span id="role">独立开发者 · 全栈工程师</span></span>
+      <span id="handle">github.com/Neonity</span>
+    </footer>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const set = (id, key, transform) => {
+        const value = params.get(key);
+        if (value) document.getElementById(id).textContent = transform ? transform(value) : value;
+      };
+      set('name', 'name');
+      set('monogram', 'name', (v) => [...v][0].toUpperCase());
+      set('monogram', 'monogram');
+      set('role', 'role');
+      set('handle', 'handle');
+      set('statement', 'statement', (v) => v.replaceAll('|', '\n'));
+    </script>
+  </body>
+</html>

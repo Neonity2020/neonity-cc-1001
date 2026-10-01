@@ -1,0 +1,29 @@
+---
+import { site } from '../site.config';
+
+const { stack } = site;
+---
+
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{stack.index} — {stack.label}</p>
+      <h2 class="section-title">{stack.title}</h2>
+    </div>
+
+    <div class="stack">
+      {
+        stack.groups.map((group) => (
+          <div class="stack__row">
+            <span class="stack__k">{group.k}</span>
+            <div class="stack__v">
+              {group.v.map((item) => (
+                <span class="chip">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

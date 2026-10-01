@@ -1,0 +1,19 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.astro/
+
+# pnpm 本地存储
+# 正常机器上 pnpm 用全局 store，不会出现在这里；
+# 但受限环境（全局 store 不可写）会让 pnpm 退回项目内建 store，别把它提交进去。
+.pnpm-store/
+
+# 环境变量
+.env
+.env.production
+
+# 编辑器与系统
+.DS_Store
+.vscode/
+.idea/
+*.log

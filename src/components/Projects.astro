@@ -1,0 +1,32 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import type { Project, ProjectStatus } from '../site.config';
+
+interface Props {
+  id: string;
+  index: string;
+  label: string;
+  title: string;
+  desc: string;
+  status: ProjectStatus;
+  items: readonly Project[];
+  /** three = 桌面端三列 */
+  columns?: 'two' | 'three';
+}
+
+const { id, index, label, title, desc, status, items, columns = 'three' } = Astro.props;
+---
+
+<section class="section" id={id}>
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{index} — {label}</p>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-desc">{desc}</p>
+    </div>
+
+    <div class={`project-grid${columns === 'three' ? ' project-grid--three' : ''}`}>
+      {items.map((project) => <ProjectCard project={project} status={status} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import { site } from '../site.config';
+
+const { philosophy } = site;
+---
+
+<section class="section" id="philosophy">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{philosophy.index} — {philosophy.label}</p>
+      <h2 class="section-title">{philosophy.title}</h2>
+      <p class="section-desc">{philosophy.desc}</p>
+    </div>
+
+    <ol class="principles">
+      {
+        philosophy.principles.map((principle, i) => (
+          <li class="principle">
+            <span class="principle__num" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div class="principle__body">
+              <h3 class="principle__title">{principle.title}</h3>
+              <p class="principle__text">{principle.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

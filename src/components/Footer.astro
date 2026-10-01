@@ -1,0 +1,27 @@
+---
+import { site } from '../site.config';
+
+const { footer, person } = site;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__note">© {year} {person.name} · {footer.note}</p>
+
+    <nav class="footer__links" aria-label="社交媒体">
+      {
+        footer.socials.map((social) => (
+          <a
+            class="footer__link"
+            href={social.href}
+            target={social.href.startsWith('http') ? '_blank' : undefined}
+            rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            {social.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>

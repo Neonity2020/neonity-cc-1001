@@ -1,0 +1,5 @@
+# pnpm 11 用它记录「哪些依赖允许执行安装脚本」。
+# esbuild 需要（Vite 依赖它）；sharp 用不到（Astro 只在做图片优化时才用）。
+allowBuilds:
+  esbuild: true
+  sharp: false

@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Philosophy from '../components/Philosophy.astro';
+import Projects from '../components/Projects.astro';
+import Stack from '../components/Stack.astro';
+import { site } from '../site.config';
+
+const { building, maintaining } = site.projects;
+---
+
+<Base>
+  <Hero />
+  <Philosophy />
+
+  <Projects
+    id="building"
+    index={building.index}
+    label={building.label}
+    title={building.title}
+    desc={building.desc}
+    status="building"
+    items={building.items}
+  />
+
+  <Projects
+    id="maintaining"
+    index={maintaining.index}
+    label={maintaining.label}
+    title={maintaining.title}
+    desc={maintaining.desc}
+    status="maintained"
+    items={maintaining.items}
+  />
+
+  <Stack />
+</Base>

@@ -1,0 +1,55 @@
+---
+import type { Project, ProjectStatus } from '../site.config';
+
+interface Props {
+  project: Project;
+  status: ProjectStatus;
+}
+
+const { project, status } = Astro.props;
+const href = project.href || project.repo;
+const statusLabel = status === 'building' ? '构建中' : '维护中';
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag class="project" href={href} target={href?.startsWith('http') ? '_blank' : undefined} rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}>
+  <div class="project__top">
+    <span class={`pill pill--${status}`}>
+      <span class="dot" aria-hidden="true" />
+      {statusLabel}
+    </span>
+    <span class="project__lang">{project.language}</span>
+  </div>
+
+  <h3 class="project__name">
+    <code>{project.name}</code>
+    <span class="project__arrow" aria-hidden="true">→</span>
+  </h3>
+
+  <p class="project__tagline">{project.tagline}</p>
+  <p class="project__desc">{project.description}</p>
+
+  {
+    project.tags?.length ? (
+      <div class="project__tags">
+        {project.tags.map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    ) : null
+  }
+
+  <div class="project__meta">
+    <span>{project.meta}</span>
+    {
+      project.repo && (
+        <span class="project__repo" aria-hidden="true">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.88.51-1.08-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38A8 8 0 0 0 8 0Z" />
+          </svg>
+          Repo
+        </span>
+      )
+    }
+  </div>
+</Tag>
