@@ -56,7 +56,7 @@ export const site = {
     name: 'Neonity',
     /** 头像位置放你的名字首字母，或改成 logo 字符 */
     monogram: 'N',
-    handle: '@neonity',
+    /** 下面两个当前页面没有渲染，留着给以后扩展用 */
     role: '独立开发者 · 全栈工程师',
     location: '杭州',
     email: 'hi@example.com',

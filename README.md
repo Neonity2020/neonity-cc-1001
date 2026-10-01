@@ -32,7 +32,7 @@ pnpm preview    # 本地预览构建产物
 | 字段 | 作用 |
 | --- | --- |
 | `meta` | 标题、描述、域名、分享图 |
-| `person` | 姓名、首字母缩写、身份、邮箱 |
+| `person` | 姓名、首字母缩写、邮箱（`role` / `location` 已填但暂未渲染） |
 | `hero` | 首屏状态胶囊、主标题（哲学主张）、导语、按钮、底部数据 |
 | `philosophy` | 编程哲学条目，`title` + `body` 成对增删 |
 | `projects.building` | 正在构建的项目 |
