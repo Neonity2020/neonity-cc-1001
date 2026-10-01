@@ -74,7 +74,7 @@ export const site = {
     /** 建议只留 2 个：手机上刚好一行放得下 */
     actions: <Action[]>[
       { label: '正在构建的项目', href: '#building', style: 'primary' },
-      { label: 'GitHub', href: 'https://github.com/Neonity', style: 'secondary', external: true },
+      { label: 'GitHub', href: 'https://github.com/Neonity2020', style: 'secondary', external: true },
     ],
     /** 首屏底部的等宽小字数据，3–4 项最佳，数字自己改 */
     facts: [
@@ -127,7 +127,7 @@ export const site = {
           language: 'TypeScript',
           meta: 'v0.6 · 3 天前有提交',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['类型推导', 'Postgres'],
         },
         {
@@ -138,7 +138,7 @@ export const site = {
           language: 'Rust',
           meta: 'v0.2 · 2 周前有提交',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['CRDT', '离线优先'],
         },
         {
@@ -149,7 +149,7 @@ export const site = {
           language: 'Go',
           meta: '实验阶段 · 本周有提交',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['静态分析', '索引'],
         },
       ],
@@ -169,7 +169,7 @@ export const site = {
           language: 'TypeScript',
           meta: 'v4.2 · 1.2k stars',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['零依赖', '1.4 kB'],
         },
         {
@@ -180,7 +180,7 @@ export const site = {
           language: 'TypeScript',
           meta: 'v2.8 · 稳定',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['AST', '插件'],
         },
         {
@@ -190,7 +190,7 @@ export const site = {
           language: 'Shell',
           meta: '持续更新',
           href: '#',
-          repo: 'https://github.com/Neonity',
+          repo: 'https://github.com/Neonity2020',
           tags: ['Neovim', 'zsh'],
         },
       ],
@@ -215,7 +215,7 @@ export const site = {
   footer: {
     note: '用 Astro 构建，部署在 Vercel。没有追踪脚本。',
     socials: [
-      { label: 'GitHub', href: 'https://github.com/Neonity' },
+      { label: 'GitHub', href: 'https://github.com/Neonity2020' },
       { label: 'X', href: 'https://x.com/' },
       { label: 'Email', href: 'mailto:hi@example.com' },
     ],

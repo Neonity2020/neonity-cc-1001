@@ -16,7 +16,7 @@ const DEFAULTS = {
   name: 'Neonity',
   monogram: 'N',
   role: '独立开发者 · 全栈工程师',
-  handle: 'github.com/Neonity',
+  handle: 'github.com/Neonity2020',
   statement: '用尽可能少的抽象，|解决尽可能真实的问题。',
 };
 
