@@ -13,7 +13,7 @@ import { join, resolve } from 'node:path';
 
 /* ── 默认文案（与 site.config.ts 保持一致即可） ─────────── */
 const DEFAULTS = {
-  name: '你的名字',
+  name: 'Neonity',
   monogram: 'N',
   role: '独立开发者 · 全栈工程师',
   handle: 'github.com/Neonity',
@@ -99,7 +99,10 @@ for (let i = 0; i < 40 && !up; i++) {
 const cleanup = async (code) => {
   chrome.kill();
   server.close();
-  await rm(profile, { recursive: true, force: true });
+  // Chrome 退出时会继续往 profile 里写，删不干净是常态。
+  // 这只是临时目录，删不掉不该让整个脚本失败。
+  await sleep(400);
+  await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }).catch(() => {});
   process.exit(code);
 };
 

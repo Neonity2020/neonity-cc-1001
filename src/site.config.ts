@@ -42,7 +42,7 @@ export interface Action {
 export const site = {
   /* ── 基本信息 ─────────────────────────────────────────── */
   meta: {
-    title: '你的名字 — 独立开发者',
+    title: 'Neonity — 独立开发者',
     description:
       '个人主页：编程哲学，以及正在构建和维护的项目。喜欢小接口、明确的边界，以及三年后还能读懂的代码。',
     /** 部署后换成真实域名 */
@@ -53,7 +53,7 @@ export const site = {
   },
 
   person: {
-    name: '你的名字',
+    name: 'Neonity',
     /** 头像位置放你的名字首字母，或改成 logo 字符 */
     monogram: 'N',
     handle: '@neonity',
